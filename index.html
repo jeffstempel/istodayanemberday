@@ -9,40 +9,9 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:description" content="Not sure? Check here and we can help..." />
 	</head>
-<body>
-<h1 id="yesno" style="font-size: 300px;text-align: center; margin-bottom: -175px;">NO!</h1>
-<p id="desc" style="font-size: 100px;text-align: center;"></p>
-<script>
-var emberDays = [
-{month: "4", day: "26", description: "Ember Wednesday of Pentecost"},
-{month: "4", day: "28", description: "Ember Friday of Pentecost"},
-{month: "4", day: "29", description: "Ember Saturday of Pentecost"},
-{month: "8", day: "22", description: "Ember Wednesday"},
-{month: "8", day: "24", description: "Ember Friday"},
-{month: "8", day: "25", description: "Ember Saturday"},
-{month: "11", day: "15", description: "Ember Wednesday of Advent"},
-{month: "11", day: "17", description: "Ember Friday of Advent"},
-{month: "11", day: "18", description: "Ember Saturday of Advent"}];
-var month = new Date(); 
-var date = new Date();
-month = month.getMonth();
-date = date.getDate();
-var i = 0;
-for (i = 0; i < emberDays.length; i++)
-{
-	if (month == emberDays[i].month && date == emberDays[i].day)
-	{
-		document.getElementById("yesno").innerHTML = "YES!";
-		document.getElementById("desc").innerHTML = emberDays[i].description;
-		i = 100;
-	}
-	else
-	{
-		var month = parseInt(emberDays[0].month) + 1;
-		document.getElementById("desc").innerHTML = "The next Ember Day is " + month + '/' + emberDays[0].day;
-	}
-}
-
-</script>
-</body>
+	<body>
+		<h1 id="yesno" style="font-size: 300px;text-align: center; margin-bottom: -175px;">NO!</h1>
+		<p id="desc" style="font-size: 100px;text-align: center;"></p>
+		<script src="emberdays.js"></script>
+	</body>
 </html>
