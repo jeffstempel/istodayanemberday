@@ -1,32 +1,28 @@
-var emberDays = [
-    {day: new Date("December 15, 2021"), description: "Ember Wednesday of Advent"},
-    {day: new Date("December 17, 2021"), description: "Ember Friday of Advent"},
-    {day: new Date("December 18, 2021"), description: "Ember Saturday of Advent"}];
+import { getEmberDays } from "./embertides.js";
 
-var today = new Date();
-var isEmberDay = IsTodayAnEmberDay();
-if (!isEmberDay){
-    SetNextEmberDay();
+function render() {
+  const today = new Date();
+  const emberDays = [...getEmberDays(today.getFullYear()), ...getEmberDays(today.getFullYear() + 1)].sort(
+    (a, b) => a.date - b.date
+  );
+
+  const todaysEmberDay = emberDays.find(
+    (emberDay) => emberDay.date.toDateString() === today.toDateString()
+  );
+
+  const yesNoElement = document.getElementById("yesno");
+  const descriptionElement = document.getElementById("desc");
+
+  if (todaysEmberDay) {
+    yesNoElement.textContent = "YES!";
+    descriptionElement.textContent = todaysEmberDay.description;
+  } else {
+    const nextEmberDay = emberDays.find((emberDay) => emberDay.date > today);
+    yesNoElement.textContent = "NO!";
+    descriptionElement.textContent = nextEmberDay
+      ? `The next Ember Day is ${nextEmberDay.date.toDateString()}`
+      : "";
+  }
 }
 
-function IsTodayAnEmberDay(){
-    for (var i = 0; i < emberDays.length; i++)
-    {
-        if (today.toDateString() == emberDays[i].day.toDateString()) {
-            document.getElementById("yesno").innerHTML = "YES!";
-            document.getElementById("desc").innerHTML = emberDays[i].description;
-            return true;
-        }
-    }
-    return false;
-}
-
-function SetNextEmberDay(){
-    for (var i = 0; i < emberDays.length; i++) {
-        if (today < emberDays[i].day )
-        {
-            document.getElementById("desc").innerHTML = "The next Ember Day is " + emberDays[i].day.toDateString();
-            break;
-        }
-    }
-}
+render();
