@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+#yesno {
+  font-size: clamp(4rem, 20vw, 18rem);
+  text-align: center;
+  margin: 0.5em 0 0;
+}
+
+#desc {
+  font-size: clamp(1.5rem, 8vw, 9rem);
+  text-align: center;
+  margin: 0 0 0.5em;
+}

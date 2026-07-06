@@ -1,0 +1,10 @@
+{
+  "name": "istodayanemberday",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tells you whether today is an Ember Day in the traditional Roman Catholic calendar.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
